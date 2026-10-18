@@ -1,0 +1,25 @@
+name: Rust
+
+on:
+  push:
+    paths:
+      - 'life-engine-rust/**'
+  pull_request:
+    paths:
+      - 'life-engine-rust/**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: life-engine-rust
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy --all-targets --all-features -- -D warnings
+      - run: cargo test --all
+      - run: cargo build --release
