@@ -1,25 +1,26 @@
 mod brain;
 mod config;
+mod ecology;
+mod evolution;
+mod genome;
+mod neural;
 mod organism;
+mod physics;
+mod unified;
 mod world;
 
-use config::Config;
 use rand::SeedableRng;
-use rand_chacha::ChaCha8Rng;
-use world::World;
+use unified::LifeEngine;
 
 fn main() {
-    let config = Config::default();
-    let mut rng = ChaCha8Rng::seed_from_u64(config.seed);
-    let mut world = World::new(config, &mut rng);
-
-    for tick in 0..world.config.max_ticks {
-        world.step(&mut rng);
-        if tick % world.config.render_every == 0 {
+    let seed = 0x4C494645u64;
+    let mut engine = LifeEngine::new(seed, 100);
+    for _ in 0..10_000 {
+        engine.step(seed);
+        if engine.tick % 10 == 0 {
             print!("\x1B[2J\x1B[H");
-            println!("LIFE ENGINE RUST | tick={} population={} seed={}", tick, world.population(), world.config.seed);
-            world.render();
+            println!("LIFE ENGINE UNIFIED | tick={} population={}", engine.tick, engine.population());
         }
-        if world.population() == 0 { break; }
+        if engine.population() == 0 { break; }
     }
 }
