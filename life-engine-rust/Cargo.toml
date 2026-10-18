@@ -1,0 +1,14 @@
+[package]
+name = "life-engine-rust"
+version = "0.1.0"
+edition = "2024"
+description = "A deterministic, text-mode artificial-life simulator inspired by cellular evolution systems."
+license = "MIT"
+
+[dependencies]
+rand = "0.9"
+rand_chacha = "0.9"
+
+[profile.release]
+lto = true
+codegen-units = 1
