@@ -1,0 +1,8 @@
+# Local OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Rust build artifacts are scoped to the engine directory
+life-engine-rust/target/
