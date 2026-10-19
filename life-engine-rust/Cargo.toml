@@ -1,14 +1,30 @@
 [package]
 name = "life-engine-rust"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
-description = "A deterministic, text-mode artificial-life simulator inspired by cellular evolution systems."
+description = "A deterministic, text-mode artificial-life simulator with evolution, neural control, ecology, replay, and statistics."
 license = "MIT"
+
+[features]
+default = []
+wasm = ["dep:wasm-bindgen"]
 
 [dependencies]
 rand = "0.9"
 rand_chacha = "0.9"
+wasm-bindgen = { version = "0.2", optional = true }
 
 [profile.release]
 lto = true
 codegen-units = 1
+
+[profile.dev]
+opt-level = 1
+
+[lib]
+name = "life_engine_rust"
+path = "src/lib.rs"
+
+[[bin]]
+name = "life-engine"
+path = "src/main.rs"
