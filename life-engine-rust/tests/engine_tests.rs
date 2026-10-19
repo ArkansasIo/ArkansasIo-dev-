@@ -1,5 +1,5 @@
-use life_engine_rust::{evolution::crossover, genome::Genome, neural::{BrainAction, decide}, replay::Replay, stats::SimulationStats, LifeEngine};
-use rand::{SeedableRng, Rng};
+use life_engine_rust::{evolution::crossover, genome::Genome, neural::{decide, BrainAction}, replay::Replay, stats::SimulationStats, LifeEngine};
+use rand::SeedableRng;
 use rand_chacha::ChaCha8Rng;
 
 #[test]
