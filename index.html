@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="ArkansasIo development workspace — Life Engine Rust, a deterministic artificial-life simulation.">
+  <title>ArkansasIo — Development Workspace</title>
+  <link rel="stylesheet" href="./assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="ArkansasIo home"><span class="brand-mark">A</span><span>ArkansasIo<span class="muted"> / DEV</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#engine">Engine</a>
+      <a href="#features">Features</a>
+      <a href="#quick-start">Quick start</a>
+      <a class="nav-button" href="https://github.com/ArkansasIo/ArkansasIo-dev-">View source ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="status-dot"></span> OPEN-SOURCE DEVELOPMENT WORKSPACE</div>
+      <h1>Build worlds.<br><span>Observe life.</span></h1>
+      <p class="hero-copy">A home for experimental software and simulation work. Start with Life Engine Rust: a deterministic, text-mode artificial-life simulator built for repeatable experiments.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="https://github.com/ArkansasIo/ArkansasIo-dev-/tree/main/life-engine-rust">Explore the engine <span aria-hidden="true">→</span></a>
+        <a class="button secondary" href="#quick-start">Run it locally</a>
+      </div>
+      <div class="terminal" aria-label="Example command">
+        <div class="terminal-top"><span></span><span></span><span></span><small>TERMINAL / RUST</small></div>
+        <pre><span class="prompt">$</span> cd life-engine-rust
+<span class="prompt">$</span> cargo run --release -- --seed 1234 --population 100 --ticks 1000</pre>
+      </div>
+      <div class="hero-grid" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </section>
+
+    <section class="section" id="engine">
+      <div class="section-heading"><p class="eyebrow">CURRENT PROJECT</p><h2>Life Engine Rust</h2><p>A clean-room artificial-life simulation that combines cellular organisms, genome evolution, neural decisions, ecology, and replayable runs in one Rust project.</p></div>
+      <div class="project-card">
+        <div class="project-icon" aria-hidden="true">⌘</div>
+        <div class="project-content">
+          <div class="card-title-row"><h3>Life Engine Rust</h3><span class="tag">Rust · CLI</span></div>
+          <p>Run seeded simulations from the terminal, inspect population statistics, and export results for further analysis. Rendering remains separate from the simulation core.</p>
+          <div class="card-links">
+            <a href="https://github.com/ArkansasIo/ArkansasIo-dev-/tree/main/life-engine-rust">Source code ↗</a>
+            <a href="https://github.com/ArkansasIo/ArkansasIo-dev-/blob/main/life-engine-rust/UNIFIED_ENGINE.md">Architecture notes ↗</a>
+            <a href="https://github.com/ArkansasIo/ArkansasIo-dev-/blob/main/life-engine-rust/README.md">Documentation ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feature-section" id="features">
+      <div class="section-heading"><p class="eyebrow">CAPABILITIES</p><h2>Designed for experimentation</h2><p>Core systems are modular, seeded, and testable, keeping experiments easier to reproduce and extend.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card"><span class="feature-number">01</span><h3>Evolution</h3><p>Genome mutation, crossover, parent tracking, and generation-aware selection.</p></article>
+        <article class="feature-card"><span class="feature-number">02</span><h3>Neural behaviour</h3><p>Seeded neural controllers support exploring, seeking food, fleeing threats, mating, and attacking.</p></article>
+        <article class="feature-card"><span class="feature-number">03</span><h3>Ecology & physics</h3><p>Model environmental resources and basic particle physics alongside organism needs.</p></article>
+        <article class="feature-card"><span class="feature-number">04</span><h3>Replay & statistics</h3><p>Reproduce seeded runs and export CSV or JSON summaries for inspection.</p></article>
+      </div>
+    </section>
+
+    <section class="section quick-start" id="quick-start">
+      <div class="section-heading"><p class="eyebrow">GET STARTED</p><h2>Run a simulation</h2><p>Install the stable Rust toolchain, clone the repository, and run a repeatable sample.</p></div>
+      <div class="code-card">
+        <div class="code-label">SHELL</div>
+        <pre><code>git clone https://github.com/ArkansasIo/ArkansasIo-dev-.git
+cd ArkansasIo-dev-/life-engine-rust
+cargo run --release -- --seed 1234 --population 100 --ticks 1000</code></pre>
+        <button class="copy-button" type="button" data-copy="git clone https://github.com/ArkansasIo/ArkansasIo-dev-.git&#10;cd ArkansasIo-dev-/life-engine-rust&#10;cargo run --release -- --seed 1234 --population 100 --ticks 1000">Copy commands</button>
+      </div>
+      <div class="verify-row"><div><strong>Verify before you extend</strong><p>Run formatting, lint, tests, and the release build from the project directory.</p></div><a href="https://github.com/ArkansasIo/ArkansasIo-dev-/blob/main/life-engine-rust/README.md">Read the test guide ↗</a></div>
+      <div class="code-card compact"><pre><code>cargo fmt --all -- --check
+cargo clippy --all-targets --all-features -- -D warnings
+cargo test --all
+cargo build --release</code></pre></div>
+    </section>
+
+    <section class="closing">
+      <p class="eyebrow">FOLLOW THE WORK</p><h2>Small experiments.<br><span>Reproducible results.</span></h2>
+      <p>Explore the source, read the design notes, or contribute improvements directly on GitHub.</p>
+      <a class="button primary" href="https://github.com/ArkansasIo/ArkansasIo-dev-">Open repository ↗</a>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="./"><span class="brand-mark">A</span><span>ArkansasIo</span></a><span>Development workspace · Hosted with GitHub Pages</span><a href="https://github.com/ArkansasIo/ArkansasIo-dev-">GitHub ↗</a></footer>
+  <script src="./assets/site.js" defer></script>
+</body>
+</html>

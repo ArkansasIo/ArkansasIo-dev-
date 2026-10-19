@@ -1,13 +1,30 @@
 # ArkansasIo Development Workspace
 
-This repository currently hosts the **Life Engine Rust** project, a deterministic, text-mode artificial-life simulation.
+This repository hosts the **Life Engine Rust** project and its documentation, plus a lightweight GitHub Pages landing page.
 
-## Project
+## Website
 
-- [Life Engine Rust](life-engine-rust/README.md) — Rust simulation core, evolutionary agents, neural control, ecology, physics, statistics, replay descriptors, CLI, and optional WebAssembly boundary.
-- [Unified architecture](life-engine-rust/UNIFIED_ENGINE.md) — module boundaries and verification strategy.
+The static site lives at the repository root:
 
-## Quick start
+- `index.html` — landing page
+- `assets/site.css` — responsive dark command-center theme
+- `assets/site.js` — small clipboard helper
+- `.github/workflows/pages.yml` — validates and deploys the root site to GitHub Pages
+
+### Enable GitHub Pages
+
+1. Open **Settings → Pages** in this repository.
+2. Under **Build and deployment**, choose **GitHub Actions** as the source.
+3. Push or merge the site files to `main`, then check the **Actions** tab for the deployment.
+4. GitHub will show the published URL under **Settings → Pages** and on the workflow deployment environment.
+
+The workflow deploys only the static root site. It does not compile or execute Rust in a browser.
+
+## Life Engine Rust
+
+[Life Engine Rust](life-engine-rust/README.md) is a deterministic, text-mode artificial-life simulator with evolutionary agents, neural control, ecology, physics primitives, statistics, replay descriptors, CLI, and an optional WebAssembly boundary.
+
+### Quick start
 
 Install a stable Rust toolchain, then run:
 
@@ -23,7 +40,7 @@ Interactive mode:
 cargo run --release -- --interactive
 ```
 
-## Verification
+### Verification
 
 From `life-engine-rust/`:
 
@@ -36,25 +53,10 @@ rustup target add wasm32-unknown-unknown
 cargo check --features wasm --target wasm32-unknown-unknown
 ```
 
-The GitHub Actions workflow runs the same checks for changes under `life-engine-rust/`.
+Rust verification is configured in `life-engine-rust/.github/workflows/rust.yml`.
 
-## Repository layout
+## Project links
 
-```text
-.
-├── README.md
-└── life-engine-rust/
-    ├── Cargo.toml
-    ├── README.md
-    ├── UNIFIED_ENGINE.md
-    ├── .github/workflows/rust.yml
-    ├── src/
-    └── tests/
-```
-
-## Development notes
-
-- Keep simulation rules independent from rendering.
-- Use seeded randomness for reproducible experiments.
-- Add regression tests when changing lifecycle, reproduction, replay, or serialization behavior.
-- Treat CI as the source of truth for formatting, linting, tests, release compilation, and the optional WASM target.
+- [Engine documentation](life-engine-rust/README.md)
+- [Unified architecture](life-engine-rust/UNIFIED_ENGINE.md)
+- [Source code](life-engine-rust/src/)
